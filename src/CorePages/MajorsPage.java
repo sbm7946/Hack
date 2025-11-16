@@ -1,14 +1,19 @@
+package CorePages;
 import javax.swing.*;
+
+import Helpers.PageRecord;
+import MajorPages.ArtPage;
+import MajorPages.CompSciPage;
+
 import java.awt.*;
 import java.util.ArrayList;
 
-public class MajorsPage extends JPanel {
+public class MajorsPage extends CorePageADT{
 
-    private MainFrame mainFrame;
 
     private CardLayout majorsPageManager;
     private JPanel cardPanel;
-    ArrayList<NavPageRecord> majorsPageList;
+    ArrayList<PageRecord> majorsPageList;
 
 
     private JComponent createSidebar(){
@@ -18,7 +23,7 @@ public class MajorsPage extends JPanel {
 
         sideBar.setLayout(new GridLayout(0, 1, 0, 10));
 
-        for (NavPageRecord record : majorsPageList){
+        for (PageRecord record : majorsPageList){
             JButton b = record.getPageButton();
             b.addActionListener(e -> showPage(record.getPageID()));
 
@@ -40,11 +45,8 @@ public class MajorsPage extends JPanel {
 
 
 
-    public MajorsPage(MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
-
-        setLayout(new BorderLayout());
-
+    public MajorsPage() {
+        super("Majors");
         //side bar for majors to select
         majorsPageManager = new CardLayout();
         cardPanel = new JPanel(majorsPageManager);
@@ -55,26 +57,27 @@ public class MajorsPage extends JPanel {
 
 
         //adding pages to side panel
-        majorsPageList.add(new NavPageRecord("ART_PAGE", 
+        majorsPageList.add(new PageRecord("ART_PAGE", 
                                             new JButton("Art"), 
-                                            new ArtPage(mainFrame)));
-        majorsPageList.add(new NavPageRecord("COMP_SCI_PAGE", 
+                                            new ArtPage()));
+        majorsPageList.add(new PageRecord("COMP_SCI_PAGE", 
                                         new JButton("Computer Science"), 
-                                        new CompSciPage(mainFrame)));
+                                        new CompSciPage()));
 
-        for (NavPageRecord record : majorsPageList){
+        for (PageRecord record : majorsPageList){
             cardPanel.add(record.getPagPanel(), record.getPageID());
         }
 
         
+        //have to do this manually becasue of box
         JLabel title = new JLabel("Majors Page", SwingConstants.CENTER);
         title.setVerticalAlignment(SwingConstants.NORTH);
         title.setFont(title.getFont().deriveFont(Font.BOLD, 24f));
 
         add(title, BorderLayout.NORTH);
 
-        add(createSidebar(), BorderLayout.WEST);
-        add(cardPanel, BorderLayout.CENTER);
+        CONTENT_PANEL.add(createSidebar(), BorderLayout.WEST);
+        CONTENT_PANEL.add(cardPanel, BorderLayout.CENTER);
 
 
     }

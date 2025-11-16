@@ -1,4 +1,12 @@
 import javax.swing.*;
+
+import CorePages.AthleticsPage;
+import CorePages.BasicsPage;
+import CorePages.HomePage;
+import CorePages.MajorsPage;
+import CorePages.SafetyPage;
+import Helpers.PageRecord;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -6,7 +14,7 @@ public class MainFrame extends JFrame {
 
     private CardLayout pageManager;
     private JPanel cardPanel;
-    ArrayList<NavPageRecord> pageList;
+    ArrayList<PageRecord> pageList;
 
     static final int SCREEN_HEIGHT = 600;
     static final int SCREEN_WIDTH = 800;
@@ -27,14 +35,14 @@ public class MainFrame extends JFrame {
         pageList = new ArrayList<>();
 
         // Create page records and add them to the page list
-        pageList.add(new NavPageRecord("PAGE_HOME", new JButton("Home"), new HomePage(this)));
-        pageList.add(new NavPageRecord("PAGE_MAJORS", new JButton("Majors"), new MajorsPage(this)));
-        pageList.add(new NavPageRecord("PAGE_BASICS", new JButton("Basics"), new BasicsPage(this)));
-        pageList.add(new NavPageRecord("PAGE_ATHLETICS", new JButton("Athletics"), new AthleticPage(this)));
-        pageList.add(new NavPageRecord("PAGE_SAFETY", new JButton("Safety"), new SafetyPage(this)));
+        pageList.add(new PageRecord("PAGE_HOME", new JButton("Home"), new HomePage()));
+        pageList.add(new PageRecord("PAGE_MAJORS", new JButton("Majors"), new MajorsPage()));
+        pageList.add(new PageRecord("PAGE_BASICS", new JButton("Basics"), new BasicsPage()));
+        pageList.add(new PageRecord("PAGE_ATHLETICS", new JButton("Athletics"), new AthleticsPage()));
+        pageList.add(new PageRecord("PAGE_SAFETY", new JButton("Safety"), new SafetyPage()));
         
         // Add pages to the card panel with a name
-        for (NavPageRecord record : pageList){
+        for (PageRecord record : pageList){
             cardPanel.add(record.getPagPanel(), record.getPageID());
         }
         
@@ -52,7 +60,7 @@ public class MainFrame extends JFrame {
     private JComponent createNavBar() {
         JPanel nav = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-        for (NavPageRecord record : pageList){
+        for (PageRecord record : pageList){
             record.getPageButton().addActionListener(e -> showPage(record.getPageID()));
             nav.add(record.getPageButton());
         }
