@@ -16,24 +16,41 @@ public class ClubSoccerPage extends MajorsPageADT {
         JLabel title = new JLabel("Club Soccer General Page!", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 24));
         JTextArea info = new JTextArea("""
-                 • Club Email:
-                 • Club Insta:
+                 •Insta:
+                        • Womens Club Insta: @sdsuwomensclubsoccer
+                        • Mens Club Insta: @mensclubsoccer
+  
                  • About us:
                         We are a intramural club soccer team dediacated to ever improving our skills and love for the game. 
+                        
+                        Men's Leadership:
+                            President: Jose Rodriguez at jrodriguez3818@sdsu.edu
+                            Vice President: Sayf Mamory at smamory5394@sdsu.edu
+                            Head Coach (A Team): Nick Lopez at nlopez8@sdsu.edu
+                            Assistant Coach: Sean Connors at sconnors@sdsu.edu
+                        
+                        Women's Leadership:
+                            President: Taylor Gallagher at tgallaher7386@sdsu.edu
+                            Vice President: Kelly Fleischer at kfleischer1795@sdsu.edu
+                            Coach: Eric Wohl at ewohl@sdsu.edu
+                            Coach: Rubi Mena at rmena@sdsu.edu
+                            
+                 Please Contact Us With Any Inquiries!
+                            
                  """);
         info.setEditable(false);
         info.setFont(new Font("Monospaced", Font.PLAIN, 14));
         info.setBackground(getBackground());
         JPanel buttons = new JPanel();
         JButton reportButton = new JButton("Post!");
-        JButton resourcesButton = new JButton("Contact us!");
+        //JButton resourcesButton = new JButton("Contact us!");
         buttons.add(reportButton);
-        buttons.add(resourcesButton);
+        //buttons.add(resourcesButton);
         add(title, BorderLayout.NORTH);
         add(new JScrollPane(info), BorderLayout.CENTER);
         add(buttons, BorderLayout.SOUTH);
         reportButton.addActionListener(e -> openReportDialog());
-        resourcesButton.addActionListener(e -> openReportDialog());
+        //resourcesButton.addActionListener(e -> openReportDialog());
 
 
     }
