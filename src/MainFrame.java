@@ -1,16 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
 
-    private CardLayout cardLayout;
+    private CardLayout pageManager;
     private JPanel cardPanel;
+    ArrayList<NavPageRecord> pageList;
 
-    public static final String PAGE_HOME = "PAGE_HOME";
-    public static final String PAGE_SETTINGS = "PAGE_SETTINGS";
-    public static final String MAJORS_PAGE = "MAJORS_PAGE";
-    public static final String BASICS_PAGE = "BASICS_PAGE";
-    public static final String ATHLETICS_PAGE = "ATHLETICS_PAGE";
+
+
+    static final int SCREEN_HEIGHT = 600;
+    static final int SCREEN_WIDTH = 800;
+
+
+
     
 
 
@@ -19,26 +23,28 @@ public class MainFrame extends JFrame {
 
         // Basic window stuff
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         setLocationRelativeTo(null); // center
 
-        // Card layout holds all "pages"
-        cardLayout = new CardLayout();
-        cardPanel = new JPanel(cardLayout);
+        //Page Manager holds all our pages
+        pageManager = new CardLayout();
+        cardPanel = new JPanel(pageManager);
+        pageList = new ArrayList<>();
 
-        // Create pages
-        JPanel homePage = new HomePage(this);
-        JPanel settingsPage = new Settingspage(this);
-        JPanel majors = new Majors(this);
-        JPanel basics = new BasicsPage(this);
-        JPanel ath = new AthleticPage(this);
+        // Create page records and add them to the page list
+        pageList.add(new NavPageRecord("PAGE_HOME", new JButton("Home"), new HomePage(this)));
+        pageList.add(new NavPageRecord("PAGE_MAJORS", new JButton("Majors"), new MajorsPage(this)));
+        pageList.add(new NavPageRecord("PAGE_BASICS", new JButton("Basics"), new BasicsPage(this)));
+        pageList.add(new NavPageRecord("PAGE_ATHLETICS", new JButton("Athletics"), new AthleticPage(this)));
+        pageList.add(new NavPageRecord("PAGE_SAFETY", new JButton("Safety"), new SafetyPage(this)));
+        
+
 
         // Add pages to the card panel with a name
-        cardPanel.add(homePage, PAGE_HOME);
-        cardPanel.add(settingsPage, PAGE_SETTINGS);
-        cardPanel.add(majors, MAJORS_PAGE);
-        cardPanel.add(basics, BASICS_PAGE);
-        cardPanel.add(ath, ATHLETICS_PAGE);
+        for (NavPageRecord record : pageList){
+            cardPanel.add(record.getPagPanel(), record.getPageID());
+        }
+        
 
         // Layout: nav bar on top, content in center
         setLayout(new BorderLayout());
@@ -48,33 +54,25 @@ public class MainFrame extends JFrame {
         this.setVisible(true);
     }
 
+
+
+
     // Simple nav bar with buttons to switch pages
     private JComponent createNavBar() {
         JPanel nav = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-        JButton homeBtn = new JButton("Home");
-        JButton settingsBtn = new JButton("Settings");
-        JButton m = new JButton("Majors");
-        JButton b = new JButton("Basics");
-        JButton ath = new JButton("Athletics");
+        for (NavPageRecord record : pageList){
+            record.getPageButton().addActionListener(e -> showPage(record.getPageID()));
+            nav.add(record.getPageButton());
+        }
 
-        homeBtn.addActionListener(e -> showPage(PAGE_HOME));
-        settingsBtn.addActionListener(e -> showPage(PAGE_SETTINGS));
-        m.addActionListener(e -> showPage(MAJORS_PAGE));
-        b.addActionListener(e -> showPage(BASICS_PAGE));
-        ath.addActionListener(e -> showPage(ATHLETICS_PAGE));
-        nav.add(homeBtn);
-        nav.add(settingsBtn);
-        nav.add(m);
-        nav.add(b);
-        nav.add(ath);
-
+        
         return nav;
     }
 
     // Helper so pages can ask the frame to switch
     public void showPage(String pageName) {
-        cardLayout.show(cardPanel, pageName);
+        pageManager.show(cardPanel, pageName);
     }
 
     public static void main(String[] args) {
