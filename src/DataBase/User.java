@@ -11,17 +11,20 @@ public class User {
 
     public User(String email, String password){
         this.email = email;
-        this.passwordhash = hashPassword(password);
+        this.passwordhash = hash(password);
     }
 
 
-    private long hashPassword(String password){
-        long hash = 0;
-        for (int x = 0; x < password.length(); ++x){
-            hash += password.charAt(x);
-        }
+    private long hash(String password){
+        return password.hashCode();
+    }
 
-        return 1;
+    public String getEmail(){
+        return email;
+    }
+
+    public long getPasswordhash(){
+        return passwordhash;
     }
 
 }
