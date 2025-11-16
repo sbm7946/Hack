@@ -2,10 +2,9 @@ package CorePages;
 import javax.swing.*;
 
 import BasicsPages.FoodPage;
-import BasicsPages.HealthCarePage;
-import BasicsPages.MentalHealthPage;
+import BasicsPages.HealthServicesPage;
 import Helpers.PageRecord;
-
+import javax.swing.ImageIcon;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -33,7 +32,6 @@ public class BasicsPage extends CorePageADT{
             sideBar.add(b);
         }
 
-        //has side panel centered at y = 0 (center to the left)
         JPanel wrapper = new JPanel(new GridBagLayout());
         wrapper.add(sideBar);
 
@@ -46,32 +44,26 @@ public class BasicsPage extends CorePageADT{
 
     public BasicsPage() {
         super("Basics");
-        //side bar for majors to select
         basicsPageManager = new CardLayout();
         cardPanel = new JPanel(basicsPageManager);
         basicsPageList = new ArrayList<>();
 
-        //gives panel a box around it
         cardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
 
         //adding pages to side panel
-        basicsPageList.add(new PageRecord("HEALTHCARE_PAGE",
-                new JButton("Healthcare"),
-                new HealthCarePage()));
         basicsPageList.add(new PageRecord("FOOD_PAGE",
                 new JButton("Food"),
                 new FoodPage()));
-        basicsPageList.add(new PageRecord("MENTAL_HEALTH_PAGE",
-                new JButton("Mental Health"),
-                new MentalHealthPage()));
+        basicsPageList.add(new PageRecord("HEALTHCARE_PAGE",
+                new JButton("Healthcare"),
+                new HealthServicesPage()));
 
         for (PageRecord record : basicsPageList){
             cardPanel.add(record.getPagPanel(), record.getPageID());
         }
 
 
-        //have to do this manually becasue of box
         JLabel title = new JLabel("Basics Page", SwingConstants.CENTER);
         title.setVerticalAlignment(SwingConstants.NORTH);
         title.setFont(title.getFont().deriveFont(Font.BOLD, 24f));

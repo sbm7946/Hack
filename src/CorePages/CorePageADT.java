@@ -25,8 +25,5 @@ public class CorePageADT extends JPanel{
         CONTENT_PANEL = new JPanel();
         CONTENT_PANEL.setLayout(new BorderLayout());
         add(CONTENT_PANEL, BorderLayout.CENTER);
-
-        
-        
     }
 }
