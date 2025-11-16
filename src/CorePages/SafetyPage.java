@@ -1,7 +1,5 @@
 package CorePages;
 import javax.swing.*;
-
-
 import java.awt.*;
 
 public class SafetyPage extends CorePageADT {
@@ -12,7 +10,7 @@ public class SafetyPage extends CorePageADT {
         JLabel title = new JLabel("San Diego State University Safety Hub", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 24));
         JTextArea info = new JTextArea("""
-                 • Emergency contacts: 911 or Campus Security (555-1234)
+                 • Emergency contacts: 911 or Campus Security (619-594-1991)
                  • Safety tips: Walk in groups after dark
                  • Report incidents anonymously via the Safety Form
                  """);
