@@ -1,16 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Majors extends JPanel {
+public class BasicsPage extends JPanel {
 
     private MainFrame mainFrame;
 
-    public Majors(MainFrame mainFrame) {
+    public BasicsPage(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
 
         setLayout(new BorderLayout());
 
-        JLabel title = new JLabel("Majors Page", SwingConstants.CENTER);
+        JLabel title = new JLabel("Basics Page", SwingConstants.CENTER);
         title.setFont(title.getFont().deriveFont(Font.BOLD, 24f));
 
         JButton goToSettings = new JButton("Go to Settings");
