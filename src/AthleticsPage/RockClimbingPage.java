@@ -1,20 +1,20 @@
-package MajorPages;
+package AthleticsPage;
+//package MajorPages;
 
 import javax.swing.*;
 
 
 import java.awt.*;
 
-public class ArtPage extends MajorsPageADT{
-    
+import MajorPages.MajorsPageADT;
+
+public class RockClimbingPage extends MajorsPageADT{
 
 
-
-
-    public ArtPage() {
+    public RockClimbingPage() {
         super("Postings ");
         setLayout(new BorderLayout());
-        JLabel title = new JLabel("Postings!", SwingConstants.CENTER);
+        JLabel title = new JLabel("Club Soccer Postings!", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 24));
         JTextArea info = new JTextArea("empty :/ ");
         info.setEditable(false);
@@ -22,10 +22,7 @@ public class ArtPage extends MajorsPageADT{
         info.setBackground(getBackground());
         add(title, BorderLayout.NORTH);
         add(new JScrollPane(info), BorderLayout.CENTER);
-
-        
-
-        
     }
-}
 
+
+}

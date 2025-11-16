@@ -16,27 +16,21 @@ public class HomePage extends JPanel {
         content.setBorder(new EmptyBorder(20, 40, 40, 40));
         content.setBackground(Color.WHITE);
 
-        JLabel hello = new JLabel("Hello! Welcome to the SDSU Community App!");
+        JLabel hello = new JLabel("Hello! Welcome to the San Diego State University Community App!");
         hello.setFont(hello.getFont().deriveFont(Font.BOLD, 22f));
         hello.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel instr1 = new JLabel("Please navigate to the top to select the community you wish to view!");
         instr1.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JPanel emailRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
-        emailRow.setOpaque(false);
-        JLabel contactText = new JLabel("If you have any questions, please reach out at ");
-        JTextField email = new JTextField("______@sdsu.edu", 18);
-        email.setBorder(new LineBorder(new Color(0xBBBBBB)));
-        emailRow.add(contactText);
-        emailRow.add(email);
-        emailRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel emailLine = new JLabel("If you have any questions, please reach out at ______@sdsu.edu");
+        emailLine.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         content.add(hello);
         content.add(Box.createVerticalStrut(8));
         content.add(instr1);
         content.add(Box.createVerticalStrut(8));
-        content.add(emailRow);
+        content.add(emailLine);
         content.add(Box.createVerticalStrut(20));
 
         // ===== Resources box =====

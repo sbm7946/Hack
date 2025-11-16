@@ -1,23 +1,22 @@
 package BasicsPages;
 import javax.swing.*;
 
-
 import java.awt.*;
 
 public class FoodPage extends BasicsPagesADT{
     public FoodPage() {
 
-        super("Food");
+        super("");
 
         JPanel imagePanel = new JPanel(new GridLayout(2, 2, 10, 10));
         imagePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         String[] imagePaths = {
-                "Images/BabasPizza.png",
-                "Images/AztecMarket.png",
-                "Images/BcbCafe.png",
-                "Images/PandaExpres.png",
-                "Images/ShakeSmart.png"
+                "assets/BabasPizza.png",
+                "assets/AztecMarket.png",
+                "assets/BcbCafe.png",
+                "assets/PandaExpres.png",
+                "assets/ShakeSmart.png"
         };
 
         for(String imagePath : imagePaths) {
@@ -64,14 +63,6 @@ public class FoodPage extends BasicsPagesADT{
         submitBtn.addActionListener(ev -> {
             String name = nameField.getText().trim();
             String desc = descriptionArea.getText().trim();
-
-            if (desc.isEmpty()) {
-                JOptionPane.showMessageDialog(dialog,
-                        "Please describe the incident before submitting.",
-                        "Missing Information",
-                        JOptionPane.WARNING_MESSAGE);
-                return;
-            }
 
             // Simulate "sending" the report (you could later save to a DB/file)
             JOptionPane.showMessageDialog(dialog,

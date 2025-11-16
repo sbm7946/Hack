@@ -57,12 +57,12 @@ public class MajorsPage extends CorePageADT{
 
 
         //adding pages to side panel
-        majorsPageList.add(new PageRecord("ART_PAGE", 
-                                            new JButton("Art"), 
-                                            new ArtPage()));
-        majorsPageList.add(new PageRecord("COMP_SCI_PAGE", 
-                                        new JButton("Computer Science"), 
-                                        new CompSciPage()));
+        majorsPageList.add(new PageRecord("COMP_SCI_GEN_PAGE",
+                                            new JButton("General"),
+                                            new CompSciPage()));
+        majorsPageList.add(new PageRecord("ART_PAGE",
+                                        new JButton("POSTINGS"),
+                                        new ArtPage()));
 
         for (PageRecord record : majorsPageList){
             cardPanel.add(record.getPagPanel(), record.getPageID());

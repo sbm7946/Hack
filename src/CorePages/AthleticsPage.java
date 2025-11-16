@@ -59,12 +59,18 @@ public class AthleticsPage extends CorePageADT {
 
 
         //adding pages to side panel
-        majorsPageList.add(new PageRecord("ROCK_CLIMBING_PAGE",
-                new JButton("Club Soccer"),
+        majorsPageList.add(new PageRecord("GENERAL_PAGE_SOCCER",
+                new JButton("GENERAL PAGE"),
                 new ClubSoccerPage()));
+<<<<<<< HEAD
         majorsPageList.add(new PageRecord("CLUB_SOCCER_PAGE",
                 new JButton("Clubs Postings"),
                 new ClubPostings()));
+=======
+        majorsPageList.add(new PageRecord("POSTINGS_PAGE_SOCCER",
+                new JButton("POSTINGS"),
+                new RockClimbingPage()));
+>>>>>>> refs/remotes/origin/master
 
         for (PageRecord record : majorsPageList){
             cardPanel.add(record.getPagPanel(), record.getPageID());
@@ -72,11 +78,11 @@ public class AthleticsPage extends CorePageADT {
 
 
         //have to do this manually becasue of box
-        JLabel title = new JLabel("Athletics Page", SwingConstants.CENTER);
-        title.setVerticalAlignment(SwingConstants.NORTH);
-        title.setFont(title.getFont().deriveFont(Font.BOLD, 24f));
-
-        add(title, BorderLayout.NORTH);
+//        JLabel title = new JLabel("Athletics Page", SwingConstants.CENTER);
+//        title.setVerticalAlignment(SwingConstants.NORTH);
+//        title.setFont(title.getFont().deriveFont(Font.BOLD, 24f));
+//
+//        add(title, BorderLayout.NORTH);
 
         CONTENT_PANEL.add(createSidebar(), BorderLayout.WEST);
         CONTENT_PANEL.add(cardPanel, BorderLayout.CENTER);

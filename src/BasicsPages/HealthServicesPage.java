@@ -7,7 +7,7 @@ import java.awt.*;
 public class HealthServicesPage extends BasicsPagesADT{
     public HealthServicesPage() {
 
-        super("Health Care");
+        super("");
 
         setLayout(new BorderLayout());
         JLabel title = new JLabel("ALL SERVICES", SwingConstants.CENTER);
