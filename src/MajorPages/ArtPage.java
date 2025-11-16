@@ -5,22 +5,18 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class ArtPage extends JPanel implements MajorsPageADT{
+public class ArtPage extends MajorsPageADT{
     
 
 
 
 
     public ArtPage() {
-
-        setLayout(new BorderLayout());
-
-        JLabel title = new JLabel("Art Page", SwingConstants.CENTER);
-        title.setFont(title.getFont().deriveFont(TITLE_FONT, TITLE_FONT_SIZE));
+        super("Art");
 
         
 
-        add(title, BorderLayout.NORTH);
+        
     }
 }
 

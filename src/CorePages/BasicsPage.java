@@ -2,7 +2,7 @@ package CorePages;
 import javax.swing.*;
 
 import BasicsPages.FoodPage;
-import BasicsPages.HealthcarePage;
+import BasicsPages.HealthCarePage;
 import BasicsPages.MentalHealthPage;
 import Helpers.PageRecord;
 import MajorPages.ArtPage;
@@ -60,7 +60,7 @@ public class BasicsPage extends CorePageADT{
         //adding pages to side panel
         basicsPageList.add(new PageRecord("HEALTHCARE_PAGE",
                 new JButton("Healthcare"),
-                new HealthcarePage()));
+                new HealthCarePage()));
         basicsPageList.add(new PageRecord("FOOD_PAGE",
                 new JButton("Food"),
                 new FoodPage()));

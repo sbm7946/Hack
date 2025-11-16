@@ -5,22 +5,18 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class CompSciPage extends JPanel implements MajorsPageADT{
+public class CompSciPage extends MajorsPageADT{
     
 
 
 
 
     public CompSciPage() {
-
-        setLayout(new BorderLayout());
-
-        JLabel title = new JLabel("Computer Science Page", SwingConstants.CENTER);
-        title.setFont(title.getFont().deriveFont(TITLE_FONT, TITLE_FONT_SIZE));
+        super("Computer Science");
 
         
 
-        add(title, BorderLayout.NORTH);
+        
     }
 }
 
