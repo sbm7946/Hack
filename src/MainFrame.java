@@ -8,17 +8,12 @@ public class MainFrame extends JFrame {
     private JPanel cardPanel;
     ArrayList<NavPageRecord> pageList;
 
-
-
     static final int SCREEN_HEIGHT = 600;
     static final int SCREEN_WIDTH = 800;
 
 
-
-    
-
-
     public MainFrame() {
+        //App title
         super("Hackathon App");
 
         // Basic window stuff
@@ -38,8 +33,6 @@ public class MainFrame extends JFrame {
         pageList.add(new NavPageRecord("PAGE_ATHLETICS", new JButton("Athletics"), new AthleticPage(this)));
         pageList.add(new NavPageRecord("PAGE_SAFETY", new JButton("Safety"), new SafetyPage(this)));
         
-
-
         // Add pages to the card panel with a name
         for (NavPageRecord record : pageList){
             cardPanel.add(record.getPagPanel(), record.getPageID());
@@ -55,11 +48,9 @@ public class MainFrame extends JFrame {
     }
 
 
-
-
     // Simple nav bar with buttons to switch pages
     private JComponent createNavBar() {
-        JPanel nav = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel nav = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
         for (NavPageRecord record : pageList){
             record.getPageButton().addActionListener(e -> showPage(record.getPageID()));
