@@ -19,6 +19,8 @@ public class Accounts implements Serializable{
         accountsList = loadAccounts();
     }
 
+
+    //Did not want multiple instances
     public static Accounts getInstance(){
         if (accounts_instance == null){
             return new Accounts();

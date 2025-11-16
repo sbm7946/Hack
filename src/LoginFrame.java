@@ -25,7 +25,7 @@ public class LoginFrame extends JFrame {
         JButton signupButton = new JButton("Sign Up");
 
         // layout the form
-        panel.add(new JLabel("Username:"));
+        panel.add(new JLabel("Student Email:"));
         panel.add(usernameField);
         panel.add(new JLabel("Password:"));
         panel.add(passwordField);

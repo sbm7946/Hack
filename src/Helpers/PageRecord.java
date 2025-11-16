@@ -1,6 +1,7 @@
 package Helpers;
 import javax.swing.*;
 
+
 public class PageRecord {
     private final String PAGE_ID;
     private JButton pageButton;
