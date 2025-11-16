@@ -52,8 +52,8 @@ public class BasicsPage extends CorePageADT{
 
 
         //adding pages to side panel
-        basicsPageList.add(new PageRecord("FOOD_PAGE",
-                new JButton("Food"),
+        basicsPageList.add(new PageRecord("DINING_PAGE",
+                new JButton("Dining"),
                 new FoodPage()));
         basicsPageList.add(new PageRecord("HEALTHCARE_PAGE",
                 new JButton("Healthcare"),

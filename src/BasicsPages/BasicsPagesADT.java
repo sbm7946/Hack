@@ -9,10 +9,6 @@ public class BasicsPagesADT extends JPanel{
 
     public BasicsPagesADT(String subTitle){
         setLayout(new BorderLayout());
-        JLabel title = new JLabel(subTitle.concat(" Page"), SwingConstants.CENTER);
-        title.setFont(title.getFont().deriveFont(TITLE_FONT, TITLE_FONT_SIZE));
-
-        add(title, BorderLayout.NORTH);
     }
     
 }
