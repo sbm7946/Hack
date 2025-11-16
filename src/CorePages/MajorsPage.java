@@ -21,7 +21,7 @@ public class MajorsPage extends CorePageADT{
         sideBar.setLayout(new BoxLayout(sideBar, BoxLayout.Y_AXIS));
         sideBar.setAlignmentY(0);
 
-        sideBar.setLayout(new GridLayout(0, 1, 0, 10));
+        sideBar.setLayout(new GridLayout(0, 1, 0, 6));
 
         for (PageRecord record : majorsPageList){
             JButton b = record.getPageButton();

@@ -5,8 +5,6 @@ import BasicsPages.FoodPage;
 import BasicsPages.HealthCarePage;
 import BasicsPages.MentalHealthPage;
 import Helpers.PageRecord;
-import MajorPages.ArtPage;
-import MajorPages.CompSciPage;
 
 import java.awt.*;
 import java.util.ArrayList;
