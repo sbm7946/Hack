@@ -1,7 +1,7 @@
 package CorePages;
 import Helpers.PageRecord;
+import AthleticsPage.ClubPostings;
 import AthleticsPage.ClubSoccerPage;
-import AthleticsPage.RockClimbingPage;
 import javax.swing.*;
 
 
@@ -63,8 +63,8 @@ public class AthleticsPage extends CorePageADT {
                 new JButton("Club Soccer"),
                 new ClubSoccerPage()));
         majorsPageList.add(new PageRecord("CLUB_SOCCER_PAGE",
-                new JButton("Rock Climbing Club"),
-                new RockClimbingPage()));
+                new JButton("Clubs Postings"),
+                new ClubPostings()));
 
         for (PageRecord record : majorsPageList){
             cardPanel.add(record.getPagPanel(), record.getPageID());

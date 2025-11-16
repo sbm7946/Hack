@@ -1,6 +1,8 @@
 package AthleticsPage;
 //package MajorPages;
 
+import DataBase.*;
+
 import javax.swing.*;
 
 
@@ -16,24 +18,21 @@ public class ClubSoccerPage extends MajorsPageADT {
         JLabel title = new JLabel("Club Soccer General Page!", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 24));
         JTextArea info = new JTextArea("""
-                 • Club Email:
-                 • Club Insta:
-                 • About us:
+                • Club Email:
+                • Club Insta:
+                • About us:
                         We are a intramural club soccer team dediacated to ever improving our skills and love for the game. 
-                 """);
+                """);
         info.setEditable(false);
         info.setFont(new Font("Monospaced", Font.PLAIN, 14));
         info.setBackground(getBackground());
         JPanel buttons = new JPanel();
         JButton reportButton = new JButton("Post!");
-        JButton resourcesButton = new JButton("Contact us!");
         buttons.add(reportButton);
-        buttons.add(resourcesButton);
         add(title, BorderLayout.NORTH);
         add(new JScrollPane(info), BorderLayout.CENTER);
         add(buttons, BorderLayout.SOUTH);
         reportButton.addActionListener(e -> openReportDialog());
-        resourcesButton.addActionListener(e -> openReportDialog());
 
 
     }
@@ -90,6 +89,11 @@ public class ClubSoccerPage extends MajorsPageADT {
             String dayString = day.getText().trim();
             String event = eventName.getText().trim();
 
+
+            Post post = new Post(name, event, timeString, dayString, desc, null);
+            PostsContainer.getInstance().addPost(post);
+
+
             if(!name.isEmpty() || !desc.isEmpty() || !timeString.isEmpty() || !dayString.isEmpty()) {
                 JOptionPane.showMessageDialog(dialog,
                         "Posted by: " +name +"\nDay: "+dayString+ "\nTime: " +timeString +"\nEvent name: " + event +"\nEvent Description: " +desc,
@@ -98,19 +102,10 @@ public class ClubSoccerPage extends MajorsPageADT {
                 dialog.dispose();
             }
 
-//            if (desc.isEmpty()) {
-//                JOptionPane.showMessageDialog(dialog,
-//                        "Please describe the incident before submitting.",
-//                        "Missing Information",
-//                        JOptionPane.WARNING_MESSAGE);
-//                return;
-//            }
 
-            // Simulate "sending" the report (you could later save to a DB/file)
             JOptionPane.showMessageDialog(dialog,
-                    "Thank you for submitting your report" +
-                            (name.isEmpty() ? " anonymously." : ", " + name + "."),
-                    "Report Received",
+                    "Post Successful!",
+                    "Post Received",
                     JOptionPane.INFORMATION_MESSAGE);
 
             dialog.dispose(); // Close dialog

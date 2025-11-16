@@ -11,8 +11,8 @@ public class Accounts implements Serializable{
     private static final String SAVED_ACCOUNTS_FILE_NAME = "accounts.dat";
 
     
-    static HashMap<String, Long> accountsList;
-    private static Accounts accounts_instance;
+    private  HashMap<String, Long> accountsList;
+    private static Accounts accountsInstance;
 
     private Accounts(){
 
@@ -22,11 +22,11 @@ public class Accounts implements Serializable{
 
     //Did not want multiple instances
     public static Accounts getInstance(){
-        if (accounts_instance == null){
-            return new Accounts();
+        if (accountsInstance == null){
+            accountsInstance = new Accounts();
         }
 
-        return accounts_instance;
+        return accountsInstance;
 
     }
 
@@ -63,6 +63,7 @@ public class Accounts implements Serializable{
         }
     }
 
+    @SuppressWarnings("unchecked")
     public HashMap<String, Long> loadAccounts(){
         try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(SAVED_ACCOUNTS_FILE_NAME))) {
             
