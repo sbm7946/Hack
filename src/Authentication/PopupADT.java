@@ -6,12 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PopupADT extends JPanel{
-    // Show login dialog
+
     public static void showLogin() {
         showDialog("Login", "Username:", "Password:");
     }
 
-    // Show signup dialog
     public static void showSignup() {
         showDialog("Sign Up", "Email:", "Password:");
     }
@@ -24,12 +23,12 @@ public class PopupADT extends JPanel{
         dialog.setLayout(new BorderLayout(10, 10));
         dialog.setLocationRelativeTo(null); // centers dialog
 
-        // Title
+        // Title for page
         JLabel label = new JLabel(title, SwingConstants.CENTER);
         label.setFont(new Font("Arial", Font.BOLD, 18));
         dialog.add(label, BorderLayout.NORTH);
 
-        // Input fields
+        // inouts
         JPanel fields = new JPanel(new GridLayout(2, 2, 5, 5));
         JTextField field1 = new JTextField();
         JPasswordField field2 = new JPasswordField();
@@ -41,7 +40,7 @@ public class PopupADT extends JPanel{
 
         dialog.add(fields, BorderLayout.CENTER);
 
-        // Buttons
+        
         JPanel buttons = new JPanel();
         JButton confirm = new JButton("Confirm");
         JButton cancel = new JButton("Cancel");
@@ -66,6 +65,8 @@ public class PopupADT extends JPanel{
             dialog.dispose();
         });
 
+
+        //undoes what user input
         cancel.addActionListener(e -> dialog.dispose());
 
         dialog.setVisible(true);
